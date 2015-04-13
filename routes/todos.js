@@ -20,4 +20,12 @@ router.post('/', function(req, res, next) {
   });
 });
 
+/* GET /todo */
+router.get('/:id', function(req, res, next) {
+  Todo.findById(req.params.id, function(err,post) {
+    if (err) return next(err);
+    res.json(post);
+  });
+});
+
 module.exports = router;
